@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>MATLAB - Kaihong Huang's Blog</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MATLAB";
+    var mkdocs_page_input_path = "MATLAB.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Kaihong Huang's Blog</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Mkdocs/">Mkdocs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../data_analysis/">数据分析</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">MATLAB</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">引言</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">简介</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">下载</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-1-">Tutorial 1 - 基础命令</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#log">log</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vector">Vector</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">矩阵</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inputfprintf">input,fprintf用法</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">输入两个值，输出和</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#disp">disp用法</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">摄氏度转华氏度</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial2-ifwhilefor">Tutorial2 - IF，While，For语句</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#if">IF语句</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_7">输入数字，判断正负</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_8">输入两值，比大小</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_9">判断是否为三角形</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_10">求方程的解</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#1-100">输入数字，1-100内就平方</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#while">While语句</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#123100">求1+2+3+...+100</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_11">辗转相除求最大公约数</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#for">For语句</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1100">求1到100的和</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#1-frac-12-frac-13-frac-14-frac-1100">求 $1 + \frac {1}{2} + \frac {1}{3} + \frac {1}{4} + ... + \frac {1}{100}$</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#1-frac-12-frac-13-frac-14-frac-1100_1">求  $1 - \frac {1}{2} + \frac {1}{3} - \frac {1}{4} + ... - \frac {1}{100}$</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_12">求向量和</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial3-function">Tutorial3 - Function</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#script-function">Script 和 Function的区别： 有无（），可带额外输入</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#1-2-3-100">求1 + 2 + 3 + .. + 100</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#1n">求1到n的和</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ab">求a到b的和，需要两个参数</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_13">看个报错</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#factor">约数/factor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#prime-number1">质数/prime number.1和本身能被整除</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#11000">列出1到1000中所有的质数</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial4-">Tutorial4 - 画图</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_14">折线图</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#y-x">y = x</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#y-x2">$ y = x^2  $</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#y-x3">$ y = x^3  $</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#y-x2-y-x3">$ y = x^2 $ &amp; $ y = x^3 $</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_16">表格中画图</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_17">规则表格</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_18">不规则表格</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_19">直方图</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3d-graph">3D Graph</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_20">三维</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#z-x2-y2-">$  z = x^2 + y^2 $- 曲面</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial4-_1">Tutorial4 - 动画效果</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_21">动态正弦曲线</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_22">压缩拉伸动态</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_23">闹钟动态</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial5-">Tutorial5 - 音乐制作</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_24">小星星</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Kaihong Huang's Blog</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>MATLAB</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<h1 id="matlab">MATLAB</h1>
+<h2 id="_1">引言</h2>
+<h3 id="_2">简介</h3>
+<p>(matrix laboratory),程序设计语言，数学科学计算方面比C，C++，JAVA方便    </p>
+<p>具体为什么要用matlab,和python，R有什么区别呢？ </p>
+<h3 id="_3">下载</h3>
+<p>在monash IT下载   <br />
+<a href="https://matlab.mathworks.com">monash online matlab</a><br />
+<a href="https://trainingenrollment.mathworks.com/selfEnrollment?code=MGZH97OSGSM9">monash matlab training</a></p>
+<h2 id="tutorial-1-">Tutorial 1 - 基础命令</h2>
+<h3 id="log">log</h3>
+<p>只有：log2(32), log(32), log10(32)可以，其他不行（log3(32)不行）<br />
+解决：<br />
+$ log8(7) = \frac{log(7)}{log(8)} $,用换底公式<br />
+assign:  </p>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> <span class="m">1</span>
+<span class="nv">x</span> <span class="o">=</span> <span class="m">2</span>
+<span class="nv">x</span> <span class="o">=</span> <span class="m">3</span>
+% Final <span class="nv">x</span> <span class="o">=</span> <span class="m">3</span>
+</code></pre></div>
+
+
+<h3 id="vector">Vector</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">X</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span><span class="o">]</span>
+X * <span class="m">2</span>
+</code></pre></div>
+
+
+<p>向量加法：</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">Y</span> <span class="o">=</span> <span class="o">[</span><span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span><span class="o">]</span>
+X + Y
+<span class="nv">Y</span> <span class="o">=</span> <span class="o">[</span><span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span><span class="o">]</span>
+X + Y %维度错误
+</code></pre></div>
+
+
+<h3 id="_4">矩阵</h3>
+<p>矩阵加法</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">A</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span> <span class="m">2</span><span class="p">;</span> <span class="m">1</span> <span class="m">2</span><span class="o">]</span>
+<span class="nv">B</span> <span class="o">=</span> <span class="o">[</span><span class="m">3</span> <span class="m">4</span><span class="p">;</span> <span class="m">5</span> <span class="m">6</span><span class="o">]</span>
+A + B
+</code></pre></div>
+
+
+<p>矩阵乘法</p>
+<div class="codehilite"><pre><span></span><code>A * B
+</code></pre></div>
+
+
+<p>数位相乘：</p>
+<div class="codehilite"><pre><span></span><code>A .* B
+</code></pre></div>
+
+
+<h3 id="inputfprintf">input,fprintf用法</h3>
+<h3 id="_5">输入两个值，输出和</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;Please enter x:&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;Please enter y:&#39;</span><span class="o">)</span><span class="p">;</span>
+fprintf<span class="o">(</span><span class="s1">&#39;%g + %g = %g\n&#39;</span>, x, y, x+y<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h3 id="disp">disp用法</h3>
+<div class="codehilite"><pre><span></span><code>disp<span class="o">([</span><span class="s1">&#39;apple &#39;</span>,<span class="s1">&#39;banana &#39;</span>,<span class="s1">&#39;orange &#39;</span><span class="o">])</span><span class="p">;</span>
+<span class="nv">fr1</span> <span class="o">=</span> <span class="s1">&#39;apple&#39;</span><span class="p">;</span>
+<span class="nv">fr2</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span><span class="p">;</span>
+<span class="nv">fr3</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">;</span>
+disp<span class="o">([</span>fr1,fr2,fr3<span class="o">])</span>
+disp<span class="o">([</span>fr1,<span class="s1">&#39; &#39;</span>,fr2,<span class="s1">&#39; &#39;</span>,fr3<span class="o">])</span>
+</code></pre></div>
+
+
+<h3 id="_6">摄氏度转华氏度</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">C</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;Enter a temperate in Celsius:&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">F</span> <span class="o">=</span> <span class="o">(</span>C * <span class="m">1</span>.8<span class="o">)</span> + <span class="m">32</span><span class="p">;</span>
+fprintf<span class="o">(</span><span class="s1">&#39;Fahrenheit = %f\n&#39;</span>, F<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h2 id="tutorial2-ifwhilefor">Tutorial2 - IF，While，For语句</h2>
+<h3 id="if">IF语句</h3>
+<h4 id="_7">输入数字，判断正负</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">num</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;Please enter a number:&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">if</span> num &gt; <span class="m">0</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;positive\n&#39;</span><span class="o">)</span><span class="p">;</span>
+elseif num &lt; <span class="m">0</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;Negative\n&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">else</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;num = 0\n&#39;</span><span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h4 id="_8">输入两值，比大小</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">a</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;a=&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">b</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;b=&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">if</span> a &gt; b
+    fprintf<span class="o">(</span><span class="s1">&#39;%g is greater.\n&#39;</span>, a<span class="o">)</span><span class="p">;</span>
+<span class="k">else</span> 
+    fprintf<span class="o">(</span><span class="s1">&#39;%g is greater.\n&#39;</span>, b<span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h4 id="_9">判断是否为三角形</h4>
+<p>思路：两边之和大于第三条边  </p>
+<div class="codehilite"><pre><span></span><code><span class="nv">a</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;Enter the value of a: &#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">b</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;Enter the value of b: &#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">c</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;Enter the value of c: &#39;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">if</span> a+b &lt;<span class="o">=</span> c
+    fprintf<span class="o">(</span><span class="s1">&#39;No\n&#39;</span><span class="o">)</span><span class="p">;</span>
+elseif a+c &lt;<span class="o">=</span> b
+    fprintf<span class="o">(</span><span class="s1">&#39;No\n&#39;</span><span class="o">)</span><span class="p">;</span>
+elseif b+c &lt;<span class="o">=</span> a
+    fprintf<span class="o">(</span><span class="s1">&#39;No\n&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">else</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;Yes\n&#39;</span><span class="o">)</span><span class="p">;</span>
+end
+
+% 或者
+
+<span class="k">if</span> <span class="o">(</span>a + b &gt; c<span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>b + c &gt; a<span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>a + c &gt; b<span class="o">)</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;Yes\n&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">else</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;No\n&#39;</span><span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h4 id="_10">求方程的解</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">a</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;a = &#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">b</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;b = &#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">c</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;c = &#39;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="nv">delta</span> <span class="o">=</span> b^2 - <span class="m">4</span> * a * c<span class="p">;</span>
+<span class="k">if</span> delta &gt; <span class="m">0</span>
+%     fprintf<span class="o">(</span><span class="s1">&#39;2 solutions\n&#39;</span><span class="o">)</span><span class="p">;</span>
+    <span class="nv">x1</span> <span class="o">=</span> <span class="o">(</span>-b + sqrt<span class="o">(</span>delta<span class="o">))</span> / <span class="o">(</span><span class="m">2</span> * a<span class="o">)</span><span class="p">;</span>
+    <span class="nv">x2</span> <span class="o">=</span> <span class="o">(</span>-b - sqrt<span class="o">(</span>delta<span class="o">))</span> / <span class="o">(</span><span class="m">2</span> * a<span class="o">)</span><span class="p">;</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;x1 = %g\n&#39;</span>, x1<span class="o">)</span><span class="p">;</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;x2 = %g\n&#39;</span>, x2<span class="o">)</span><span class="p">;</span>
+elseif <span class="nv">delta</span> <span class="o">==</span> <span class="m">0</span>
+%     fprintf<span class="o">(</span><span class="s1">&#39;1 solution\n&#39;</span><span class="o">)</span><span class="p">;</span>
+    <span class="nv">x</span> <span class="o">=</span> -b / <span class="o">(</span><span class="m">2</span> * a<span class="o">)</span>
+<span class="k">else</span>
+    fprintf<span class="o">(</span><span class="s1">&#39;No solutions\n&#39;</span><span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h4 id="1-100">输入数字，1-100内就平方</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">num</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;Enter an integer between 1 and 100: &#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">if</span> <span class="m">1</span> &lt;<span class="o">=</span> num <span class="o">&amp;&amp;</span> num &lt;<span class="o">=</span> <span class="m">100</span>
+    disp<span class="o">(</span>num^2<span class="o">)</span><span class="p">;</span>
+<span class="k">else</span>
+    disp<span class="o">(</span><span class="s1">&#39;Wrong Number&#39;</span><span class="o">)</span><span class="p">;</span>
+end
+
+<span class="k">if</span> num &lt; <span class="m">1</span> <span class="o">||</span> num &gt; <span class="m">100</span>
+    disp<span class="o">(</span><span class="s1">&#39;Wrong Number&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">else</span>
+    disp<span class="o">(</span>num^2<span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h3 id="while">While语句</h3>
+<h4 id="123100">求1+2+3+...+100</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">i</span> <span class="o">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">while</span> i &lt;<span class="o">=</span> <span class="m">100</span>
+    <span class="nv">s</span> <span class="o">=</span> s + i<span class="p">;</span>
+    <span class="nv">i</span> <span class="o">=</span> i + <span class="m">1</span><span class="p">;</span>
+end
+disp<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h4 id="_11">辗转相除求最大公约数</h4>
+<div class="codehilite"><pre><span></span><code>% mod<span class="o">(</span><span class="m">371</span>,196<span class="o">)</span>
+<span class="nv">a</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;a = &#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">b</span> <span class="o">=</span> input<span class="o">(</span><span class="s1">&#39;b = &#39;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="nv">r</span> <span class="o">=</span> mod<span class="o">(</span>a, b<span class="o">)</span><span class="p">;</span>
+<span class="k">while</span> r ~<span class="o">=</span> <span class="m">0</span>
+    <span class="nv">a</span> <span class="o">=</span> b<span class="p">;</span>
+    <span class="nv">b</span> <span class="o">=</span> r<span class="p">;</span>
+    <span class="nv">r</span> <span class="o">=</span> mod<span class="o">(</span>a,b<span class="o">)</span><span class="p">;</span>
+end
+disp<span class="o">(</span>b<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h3 id="for">For语句</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">5</span> : -1 : -5
+    disp<span class="o">(</span>i<span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h4 id="1100">求1到100的和</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+    <span class="nv">s</span> <span class="o">=</span> s + i<span class="p">;</span>
+end
+disp<span class="o">(</span>s<span class="o">)</span>
+</code></pre></div>
+
+
+<h4 id="1-frac-12-frac-13-frac-14-frac-1100">求 $1 + \frac {1}{2} + \frac {1}{3} + \frac {1}{4} + ... + \frac {1}{100}$</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+    <span class="nv">s</span> <span class="o">=</span> s + <span class="o">(</span><span class="m">1</span> / i<span class="o">)</span><span class="p">;</span>
+end
+disp<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h4 id="1-frac-12-frac-13-frac-14-frac-1100_1">求  $1 - \frac {1}{2} + \frac {1}{3} - \frac {1}{4} + ... - \frac {1}{100}$</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+    <span class="k">if</span> mod<span class="o">(</span>i, <span class="m">2</span><span class="o">)</span> <span class="o">==</span> <span class="m">1</span>
+        <span class="nv">s</span> <span class="o">=</span> s + <span class="o">(</span><span class="m">1</span>/i<span class="o">)</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="nv">s</span> <span class="o">=</span> s - <span class="o">(</span><span class="m">1</span>/i<span class="o">)</span><span class="p">;</span>
+    end
+end
+disp<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h4 id="_12">求向量和</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">v</span> <span class="o">=</span> <span class="o">[</span><span class="m">5</span> <span class="m">7</span> <span class="m">9</span> <span class="m">10</span> <span class="m">13</span> <span class="m">3</span> <span class="m">2</span> <span class="m">1</span><span class="o">]</span><span class="p">;</span>
+<span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> v
+    <span class="nv">s</span> <span class="o">=</span>  s + i<span class="p">;</span>
+end
+disp<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+% disp<span class="o">(</span>sum<span class="o">(</span>v<span class="o">))</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h2 id="tutorial3-function">Tutorial3 - Function</h2>
+<h3 id="script-function">Script 和 Function的区别： 有无（），可带额外输入</h3>
+<p>Script:  </p>
+<h3 id="1-2-3-100">求1 + 2 + 3 + .. + 100</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+    <span class="nv">s</span> <span class="o">=</span>  s + i<span class="p">;</span>
+end
+disp<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<p>转为Function:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span> mysum<span class="o">()</span>
+    <span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+        <span class="nv">s</span> <span class="o">=</span>  s + i<span class="p">;</span>
+    end
+    disp<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h3 id="1n">求1到n的和</h3>
+<div class="codehilite"><pre><span></span><code>%n - input parameter/arguments<span class="o">(</span>参数<span class="o">)</span>
+<span class="k">function</span> mysum<span class="o">(</span>n<span class="o">)</span>
+    <span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : n
+        <span class="nv">s</span> <span class="o">=</span>  s + i<span class="p">;</span>
+    end
+    disp<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h3 id="ab">求a到b的和，需要两个参数</h3>
+<div class="codehilite"><pre><span></span><code>% a,a+1,...+b
+<span class="k">function</span> mysum<span class="o">(</span>a,b<span class="o">)</span>
+    <span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> a : b
+        <span class="nv">s</span> <span class="o">=</span>  s + i<span class="p">;</span>
+    end
+    disp<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h3 id="_13">看个报错</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">v1</span> <span class="o">=</span> <span class="o">[</span><span class="m">6</span> <span class="m">7</span> <span class="m">8</span> <span class="m">9</span><span class="o">]</span>
+<span class="nv">v2</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span> <span class="m">3</span> <span class="m">5</span> <span class="m">7</span> <span class="m">9</span><span class="o">]</span>
+<span class="nv">s1</span> <span class="o">=</span> sum<span class="o">(</span>v1<span class="o">)</span>
+<span class="nv">s2</span> <span class="o">=</span> sum<span class="o">(</span>v2<span class="o">)</span>
+s1 + s2
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="nv">s1</span> <span class="o">=</span> mysum<span class="o">(</span><span class="m">1</span>, <span class="m">3</span><span class="o">)</span> %报错
+</code></pre></div>
+
+
+<p>如何解决：</p>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span> <span class="nv">result</span> <span class="o">=</span> mysum<span class="o">(</span>a,b<span class="o">)</span>
+    <span class="nv">s</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> a : b
+        <span class="nv">s</span> <span class="o">=</span>  s + i<span class="p">;</span>
+    end
+    <span class="nv">result</span> <span class="o">=</span> s<span class="p">;</span> %return 放回值
+end
+</code></pre></div>
+
+
+<p>现在就可以了：  </p>
+<div class="codehilite"><pre><span></span><code>（4+5+6+7）+ （11+12+13+14+15）
+<span class="nv">S1</span> <span class="o">=</span> mysum<span class="o">(</span><span class="m">4</span>,7<span class="o">)</span>
+<span class="nv">S2</span> <span class="o">=</span> mysum<span class="o">(</span><span class="m">11</span>,15<span class="o">)</span>
+S1 + s2
+</code></pre></div>
+
+
+<h3 id="factor">约数/factor</h3>
+<p>例子： 8: 1,2,4,8  <br />
+思路： 用循环一个个检测</p>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span> <span class="nv">result</span> <span class="o">=</span> count_factors<span class="o">(</span>n<span class="o">)</span>
+    <span class="nv">count</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : n
+        <span class="k">if</span> mod<span class="o">(</span>n,i<span class="o">)</span> <span class="o">==</span> <span class="m">0</span>
+            <span class="nv">count</span> <span class="o">=</span> count + <span class="m">1</span><span class="p">;</span>
+        end
+    end
+    <span class="nv">result</span> <span class="o">=</span> count<span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h3 id="prime-number1">质数/prime number.1和本身能被整除</h3>
+<p>Result = 1:是， Result = 0:不是<br />
+Variable scope，放在不同的文件中，同样的result不会有影响  </p>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span> <span class="nv">result</span> <span class="o">=</span> is_prime<span class="o">(</span>n<span class="o">)</span>
+    <span class="nv">count</span> <span class="o">=</span> count_factors<span class="o">(</span>n<span class="o">)</span>
+    <span class="k">if</span> <span class="nv">count</span> <span class="o">==</span> <span class="m">2</span>
+        <span class="nv">result</span> <span class="o">=</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="nv">result</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    end
+end
+</code></pre></div>
+
+
+<h3 id="11000">列出1到1000中所有的质数</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">1000</span>
+    <span class="k">if</span> is_prime<span class="o">(</span>i<span class="o">)</span> <span class="o">==</span> <span class="m">1</span>
+        disp<span class="o">(</span>i<span class="o">)</span><span class="p">;</span>
+    end
+end 
+</code></pre></div>
+
+
+<h2 id="tutorial4-">Tutorial4 - 画图</h2>
+<h3 id="_14">折线图</h3>
+<h4 id="y-x">y = x</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="o">]</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> <span class="o">[</span><span class="m">4</span> <span class="m">5</span> <span class="m">6</span><span class="o">]</span><span class="p">;</span>
+plot<span class="o">(</span>x, y<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h4 id="y-x2">$ y = x^2  $</h4>
+<div class="codehilite"><pre><span></span><code>%x <span class="o">=</span> <span class="o">[</span>-3 -2 -1 <span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="o">]</span><span class="p">;</span>
+<span class="nv">x</span> <span class="o">=</span> -3 : <span class="m">3</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> x .* x<span class="p">;</span>
+plot<span class="o">(</span>x,y<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h5 id="_15">线不光滑，如何解决</h5>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> -3 : <span class="m">0</span>.1 : <span class="m">3</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> x .^ <span class="m">2</span><span class="p">;</span>
+plot<span class="o">(</span>x,y<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h4 id="y-x3">$ y = x^3  $</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> -3 : <span class="m">0</span>.1 : <span class="m">3</span><span class="p">;</span>
+<span class="nv">y1</span> <span class="o">=</span> x .^ <span class="m">2</span><span class="p">;</span>
+<span class="nv">y2</span> <span class="o">=</span> x .^ <span class="m">3</span><span class="p">;</span>
+plot<span class="o">(</span>x,y1, <span class="s1">&#39;green&#39;</span>, x, y2, <span class="s1">&#39;black&#39;</span><span class="o">)</span><span class="p">;</span>
+plot<span class="o">(</span>x,y1, <span class="s1">&#39;green-o&#39;</span><span class="o">)</span><span class="p">;</span>
+axis equal
+</code></pre></div>
+
+
+<h4 id="y-x2-y-x3">$ y = x^2 $ &amp; $ y = x^3 $</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">x1</span> <span class="o">=</span> -5 : <span class="m">0</span>.1 : <span class="m">5</span><span class="p">;</span>
+<span class="nv">y1</span> <span class="o">=</span> x1 .^ <span class="m">2</span><span class="p">;</span>
+plot<span class="o">(</span>x1, y1<span class="o">)</span><span class="p">;</span>
+
+hold on<span class="p">;</span>
+
+<span class="nv">x2</span> <span class="o">=</span> -5 : <span class="m">0</span>.1 : <span class="m">5</span><span class="p">;</span>
+<span class="nv">y2</span> <span class="o">=</span> x2 .^ <span class="m">3</span><span class="p">;</span>
+plot<span class="o">(</span>x2, y2<span class="o">)</span><span class="p">;</span>
+
+grid on<span class="p">;</span>
+title<span class="o">(</span><span class="s1">&#39;x^2 vs x^3&#39;</span><span class="o">)</span><span class="p">;</span>
+xlabel<span class="o">(</span><span class="s1">&#39;x-axis&#39;</span><span class="o">)</span><span class="p">;</span>
+ylabel<span class="o">(</span><span class="s1">&#39;y-axis&#39;</span><span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h3 id="_16">表格中画图</h3>
+<h4 id="_17">规则表格</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> -4 : <span class="m">0</span>.1 : <span class="m">4</span><span class="p">;</span>
+<span class="nv">y1</span> <span class="o">=</span> sin<span class="o">(</span>x<span class="o">)</span><span class="p">;</span>
+<span class="nv">y2</span> <span class="o">=</span> sin<span class="o">(</span><span class="m">2</span> .* x<span class="o">)</span><span class="p">;</span>
+<span class="nv">y3</span> <span class="o">=</span> sin<span class="o">(</span><span class="m">3</span> .* x<span class="o">)</span><span class="p">;</span>
+<span class="nv">y4</span> <span class="o">=</span> sin<span class="o">(</span><span class="m">4</span> .* x<span class="o">)</span><span class="p">;</span>
+
+subplot<span class="o">(</span><span class="m">2</span>, <span class="m">2</span>, <span class="m">1</span><span class="o">)</span><span class="p">;</span>
+plot<span class="o">(</span>x, y1<span class="o">)</span><span class="p">;</span>
+title<span class="o">(</span><span class="s1">&#39;y = sin(x)&#39;</span><span class="o">)</span><span class="p">;</span>
+
+subplot<span class="o">(</span><span class="m">2</span>, <span class="m">2</span>, <span class="m">2</span><span class="o">)</span><span class="p">;</span>
+plot<span class="o">(</span>x, y2<span class="o">)</span><span class="p">;</span>
+title<span class="o">(</span><span class="s1">&#39;y = sin(2x)&#39;</span><span class="o">)</span><span class="p">;</span>
+
+subplot<span class="o">(</span><span class="m">2</span>, <span class="m">2</span>, <span class="m">3</span><span class="o">)</span><span class="p">;</span>
+plot<span class="o">(</span>x, y3<span class="o">)</span><span class="p">;</span>
+title<span class="o">(</span><span class="s1">&#39;y = sin(3x)&#39;</span><span class="o">)</span><span class="p">;</span>
+
+subplot<span class="o">(</span><span class="m">2</span>, <span class="m">2</span>, <span class="m">4</span><span class="o">)</span><span class="p">;</span>
+plot<span class="o">(</span>x, y4<span class="o">)</span><span class="p">;</span>
+title<span class="o">(</span><span class="s1">&#39;y = sin(4x)&#39;</span><span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h4 id="_18">不规则表格</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> -4 : <span class="m">0</span>.1 : <span class="m">4</span><span class="p">;</span>
+
+<span class="nv">y1</span> <span class="o">=</span> cos<span class="o">(</span>x<span class="o">)</span><span class="p">;</span>
+<span class="nv">y2</span> <span class="o">=</span> cos<span class="o">(</span><span class="m">2</span> .* x<span class="o">)</span><span class="p">;</span>
+<span class="nv">y3</span> <span class="o">=</span> cos<span class="o">(</span><span class="m">4</span> .* x<span class="o">)</span><span class="p">;</span>
+
+subplot<span class="o">(</span><span class="m">2</span>, <span class="m">2</span>, <span class="m">1</span><span class="o">)</span><span class="p">;</span>
+plot<span class="o">(</span>x, y1<span class="o">)</span><span class="p">;</span>
+title<span class="o">(</span><span class="s1">&#39;y = cos(x)&#39;</span><span class="o">)</span><span class="p">;</span>
+
+subplot<span class="o">(</span><span class="m">2</span>, <span class="m">2</span>, <span class="m">2</span><span class="o">)</span><span class="p">;</span>
+plot<span class="o">(</span>x, y2<span class="o">)</span><span class="p">;</span>
+title<span class="o">(</span><span class="s1">&#39;y = cos(2x)&#39;</span><span class="o">)</span><span class="p">;</span>
+
+subplot<span class="o">(</span><span class="m">2</span>, <span class="m">2</span>, <span class="o">[</span><span class="m">3</span>, <span class="m">4</span><span class="o">])</span><span class="p">;</span>
+plot<span class="o">(</span>x, y3<span class="o">)</span><span class="p">;</span>
+title<span class="o">(</span><span class="s1">&#39;y = cos(4x)&#39;</span><span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h3 id="_19">直方图</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> <span class="m">2000</span> : <span class="m">2007</span>
+<span class="nv">y</span> <span class="o">=</span> <span class="o">[</span><span class="m">101</span> <span class="m">223</span> <span class="m">213</span> <span class="m">442</span> <span class="m">52</span> <span class="m">456</span> <span class="m">57</span> <span class="m">859</span><span class="o">]</span>
+bar<span class="o">(</span>x, y<span class="o">)</span>
+</code></pre></div>
+
+
+<h3 id="3d-graph">3D Graph</h3>
+<h4 id="_20">三维</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">theta</span> <span class="o">=</span> <span class="m">0</span> : pi/50 : <span class="m">6</span>*pi<span class="p">;</span>
+<span class="nv">x</span> <span class="o">=</span> cos<span class="o">(</span>theta<span class="o">)</span>
+<span class="nv">y</span> <span class="o">=</span> sin<span class="o">(</span>theta<span class="o">)</span>
+<span class="nv">z</span> <span class="o">=</span> <span class="m">0</span> : <span class="m">300</span>
+plot3<span class="o">(</span>x, y, z<span class="o">)</span>
+</code></pre></div>
+
+
+<h4 id="z-x2-y2-">$  z = x^2 + y^2 $- 曲面</h4>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> -3 : <span class="m">0</span>.1 : <span class="m">3</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> -3 : <span class="m">0</span>.1 : <span class="m">3</span><span class="p">;</span>
+<span class="o">[</span>x, y<span class="o">]</span> <span class="o">=</span> meshgrid<span class="o">(</span>x, y<span class="o">)</span><span class="p">;</span>
+<span class="nv">z</span> <span class="o">=</span> x .^ <span class="m">2</span> + y .^ <span class="m">2</span><span class="p">;</span>
+surf<span class="o">(</span>x, y, z<span class="o">)</span>
+</code></pre></div>
+
+
+<h2 id="tutorial4-_1">Tutorial4 - 动画效果</h2>
+<h3 id="_21">动态正弦曲线</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">x</span> <span class="o">=</span> -2*pi : <span class="m">0</span>.1 : <span class="m">2</span>*pi<span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> sin<span class="o">(</span>x<span class="o">)</span><span class="p">;</span>
+<span class="nv">h</span> <span class="o">=</span> plot<span class="o">(</span>x, y<span class="o">)</span>
+
+<span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+    <span class="nv">x</span> <span class="o">=</span> x + <span class="m">01</span><span class="p">;</span>
+    <span class="nv">y</span> <span class="o">=</span> sin<span class="o">(</span>x<span class="o">)</span><span class="p">;</span>
+    set<span class="o">(</span>h, <span class="s1">&#39;xData&#39;</span>, x, <span class="s1">&#39;yData&#39;</span>, y<span class="o">)</span>
+    drawnow<span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h3 id="_22">压缩拉伸动态</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">theta</span> <span class="o">=</span> -10 * pi: <span class="m">0</span>.1 : <span class="m">10</span> * pi
+<span class="nv">x</span> <span class="o">=</span> cos<span class="o">(</span>theta<span class="o">)</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> sin<span class="o">(</span>theta<span class="o">)</span><span class="p">;</span>
+<span class="nv">z</span> <span class="o">=</span> theta<span class="p">;</span>
+
+<span class="nv">h</span> <span class="o">=</span> plot3<span class="o">(</span>x, y, z<span class="o">)</span>
+axis<span class="o">([</span>-1, <span class="m">1</span>, -1, <span class="m">1</span>, -40, <span class="m">40</span><span class="o">])</span>
+
+<span class="k">while</span> <span class="nb">true</span>
+    <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+        <span class="nv">z</span> <span class="o">=</span> <span class="m">0</span>.98 * z<span class="p">;</span>
+        set<span class="o">(</span>h, <span class="s1">&#39;xData&#39;</span>, x, <span class="s1">&#39;yData&#39;</span>, y, <span class="s1">&#39;zData&#39;</span>, z<span class="o">)</span><span class="p">;</span>
+        drawnow<span class="p">;</span>
+    end
+
+    <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+        <span class="nv">z</span> <span class="o">=</span> z / <span class="m">0</span>.98<span class="p">;</span>
+        set<span class="o">(</span>h, <span class="s1">&#39;xData&#39;</span>, x, <span class="s1">&#39;yData&#39;</span>, y, <span class="s1">&#39;zData&#39;</span>, z<span class="o">)</span><span class="p">;</span>
+        drawnow<span class="p">;</span>
+    end
+end
+</code></pre></div>
+
+
+<h3 id="_23">闹钟动态</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">t</span> <span class="o">=</span> <span class="m">0</span> : pi/50 : <span class="m">2</span> * pi<span class="p">;</span>
+<span class="nv">x</span> <span class="o">=</span> cos<span class="o">(</span>t<span class="o">)</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> sin<span class="o">(</span>t<span class="o">)</span><span class="p">;</span>
+plot<span class="o">(</span>x, y<span class="o">)</span><span class="p">;</span>
+axis equal<span class="p">;</span>
+
+hold on<span class="p">;</span>
+
+<span class="nv">linex</span> <span class="o">=</span> <span class="o">[</span><span class="m">0</span>, <span class="m">1</span><span class="o">]</span><span class="p">;</span>
+<span class="nv">liney</span> <span class="o">=</span> <span class="o">[</span><span class="m">0</span>, <span class="m">0</span><span class="o">]</span><span class="p">;</span>
+<span class="nv">h</span> <span class="o">=</span> plot<span class="o">(</span>linex, liney<span class="o">)</span><span class="p">;</span>
+
+<span class="nv">theta</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span> : <span class="m">100</span>
+    <span class="nv">theta</span> <span class="o">=</span> theta + <span class="m">0</span>.1<span class="p">;</span>
+    linex<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="o">=</span> cos<span class="o">(</span>theta<span class="o">)</span><span class="p">;</span>
+    liney<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="o">=</span> sin<span class="o">(</span>theta<span class="o">)</span><span class="p">;</span>
+    set<span class="o">(</span>h, <span class="s1">&#39;xData&#39;</span>, linex, <span class="s1">&#39;yData&#39;</span>, liney<span class="o">)</span><span class="p">;</span>
+    drawnow<span class="p">;</span>
+end
+</code></pre></div>
+
+
+<h2 id="tutorial5-">Tutorial5 - 音乐制作</h2>
+<h3 id="_24">小星星</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span> <span class="nv">y</span> <span class="o">=</span> gen_wave<span class="o">(</span>tone, rythm<span class="o">)</span>
+    <span class="nv">Fs</span> <span class="o">=</span> <span class="m">8192</span><span class="p">;</span>
+    <span class="nv">freqs</span> <span class="o">=</span> <span class="o">[</span><span class="m">524</span>, <span class="m">587</span>, <span class="m">659</span>, <span class="m">698</span>, <span class="m">783</span>, <span class="m">880</span>, <span class="m">988</span><span class="o">]</span><span class="p">;</span>
+    <span class="nv">x</span> <span class="o">=</span> linspace<span class="o">(</span><span class="m">0</span>, <span class="m">2</span> * pi * rythm, floor<span class="o">(</span>Fs * rythm<span class="o">))</span><span class="p">;</span>
+    <span class="nv">y</span> <span class="o">=</span> sin<span class="o">(</span>freqs<span class="o">(</span>tone<span class="o">)</span> * x<span class="o">)</span> .* <span class="o">(</span><span class="m">1</span> - x / <span class="o">(</span>rythm * <span class="m">2</span> * pi<span class="o">))</span><span class="p">;</span>
+end
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="nv">Fs</span> <span class="o">=</span> <span class="m">8192</span><span class="p">;</span>
+
+<span class="nv">y1</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">1</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y2</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">1</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y3</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">5</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y4</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">5</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y5</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">6</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y6</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">6</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y7</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">5</span>, <span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> <span class="o">[</span>y1, y2, y3, y4, y5, y6, y7<span class="o">]</span><span class="p">;</span>
+
+<span class="nv">y1</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">4</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y2</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">4</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y3</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">3</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y4</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">3</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y5</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">2</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y6</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">2</span>, <span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="nv">y7</span> <span class="o">=</span> gen_wave<span class="o">(</span><span class="m">1</span>, <span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">y</span> <span class="o">=</span> <span class="o">[</span>y, y1, y2, y3, y4, y5, y6, y7<span class="o">]</span><span class="p">;</span>
+
+sound<span class="o">(</span>y, Fs<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+<script type="text/javascript" asyncsrc="path-to-mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../data_analysis/" class="btn btn-neutral" title="数据分析"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../data_analysis/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

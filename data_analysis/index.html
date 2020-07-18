@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>数据分析 - Kaihong Huang's Blog</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u6570\u636e\u5206\u6790";
+    var mkdocs_page_input_path = "data_analysis.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Kaihong Huang's Blog</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Mkdocs/">Mkdocs</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">数据分析</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1">1. 阅读列表</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">2. 数据分析基础</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21">2.1 数据分析的目的，流程和案例</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_2">数据分析岗位需要的技能</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_3">数据分析流程</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_4">案例</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22">2.2 数据分析的常见工具，画图工具和统计工具</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#r-vs-python">R vs Python</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#python">Python中数学统计和机器学习库</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#python_1">python中绘图工具</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23-pandas">2.3 Pandas基础与使用</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#24-numpy">2.4 Numpy基础与使用</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3">3. 数据清洗和质量评估</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#31">3.1 数据清洗和质量评估</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">为什么要数据清洗</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_6">为什么要进行质量评估</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#32">3.2 数据缺失值分析</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_7">缺失的原因</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_8">为什么数据缺失也需要进行分析</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_9">缺失值如何处理</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#33">3.3 数据离群点分析</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_10">离群点的来源</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_11">离群点检测用途</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_12">如何处理离群点</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_13">离群点可以从统计分位点和可视化两种方法识别</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#34">3.4 数据关联性分析</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1_1">1. 通过绘图直观可视化</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 通过计算相关性</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 数据关联分析有什么作用，能得到什么结论</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#35">3.5 案例分析</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">4. 数据可视化</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#41">4.1 数据可视化：常见的可视化工具和可视化方法</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_14">可视化功能实例</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_15">图表类型总汇</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_16">如何选择正确的图表类型</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#42-matplotlibseaborn">4.2 Matplotlib与Seaborn介绍}</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_17">图表常见组成元素：</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#matplotlib">Matplotlib图表与例子(需要时直接套用)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#seaborn">Seaborn图表与例子(需要时直接套用)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#43">4.3 地图变量可视化方法</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#folium">Folium</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#basemap">basemap</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#44">4.4 高维数据可视化方法</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#45">4.5 绘图库总结</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_18">一类</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_19">二类</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_20">三类</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">5.探索性数据分析</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#51-eda">5.1 探索性数据分析EDA</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#eda">EDA分析</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#52-eda">5.2 EDA案例</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#53">5.3 数据分析知识点总结</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../MATLAB/">MATLAB</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Kaihong Huang's Blog</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>数据分析</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1"></h1>
+<h2 id="1">1. 阅读列表</h2>
+<p><a href="https://www.cnblogs.com/arnoldlu/p/7553978.html">阅读1</a></p>
+<h2 id="2">2. 数据分析基础</h2>
+<h3 id="21">2.1 数据分析的目的，流程和案例</h3>
+<h4 id="_2">数据分析岗位需要的技能</h4>
+<p>a. SQL语言与常见的数据库操作 <br />
+b. 熟练运用R, Python, SAS等任意一种语言  <br />
+c. 数据分析与可视化技能 <br />
+d. 获取外部数据的能力，比如爬虫技能 <br />
+e. 掌握常见的数据挖掘算法，如分类，回归，聚类等  </p>
+<h4 id="_3">数据分析流程</h4>
+<p>a. (企业)：问题确定-问题拆分-指标确定-数据收集-数据清洗-数据分析-趋势预测-报告方案<br />
+b. (Kaggle)：数据获取，数据存储提取，数据预处理，建模分析，数据可视化/报表</p>
+<h4 id="_4">案例</h4>
+<p>EG.京东商城上戴森吹风机夜色属性与用户信息的关系
+1. 数据获取——提取戴森吹风机用户消费记录，以及性别，年龄，省份等信息
+2. 数据提取——提取戴森吹风机颜色属性以及用户性别，年龄，省份等星系，进行报表
+3. 建模分析——颜色属性与性别的关联分析，颜色属性与年龄的关联分析，颜色属性与xx的分析
+4. 数据可视化——颜色属性与性别的分布直方图，颜色属性与年龄的箱线图
+5. 分析结论——xx岁-xx岁人群偏爱中国红颜色，xx岁-xx岁人群偏爱紫红色，男性偏爱酷黑色
+6. 后续行动——可以按用户年龄和性别优先推送适合颜色的吹风机</p>
+<h3 id="22">2.2 数据分析的常见工具，画图工具和统计工具</h3>
+<p>数据分析中常见的语言:R,Python,Excel与VBA，SPSS</p>
+<h4 id="r-vs-python">R vs Python</h4>
+<p>R适合学术界，python适合工业界</p>
+<h4 id="python">Python中数学统计和机器学习库</h4>
+<p>Numpy, Pandas, Scipy, scikit-learn, statsmodels, XGboost/LightGBM <br />
+深度学习：Keras, TensorFlow, pyTorch</p>
+<h4 id="python_1">python中绘图工具</h4>
+<p>Matplotlib, Seaborn, Plotly, pyecharts, Bokeh, folium</p>
+<h3 id="23-pandas">2.3 Pandas基础与使用</h3>
+<p>Pandas学习： &lt;&lt;利用python进行数据分析&gt;&gt;</p>
+<h3 id="24-numpy">2.4 Numpy基础与使用</h3>
+<h2 id="3">3. 数据清洗和质量评估</h2>
+<h3 id="31">3.1 数据清洗和质量评估</h3>
+<p>在爬取，收集，整理了相关的数据后，首先要分析数据：<br />
+1. 数据字段是什么含义的，有什么业务逻辑信息
+2. 数据字段是什么类型的，其具体的量纲是什么
+数值类型，类别类型，字符串类型，文本类型，图像类型，图类型等</p>
+<h4 id="_5">为什么要数据清洗</h4>
+<ol>
+<li>并不是所有的数据都有意义</li>
+<li>并不是所有的数据都是干净规整的</li>
+<li>并不是所有的数据都是满足要求的(结构化数据，非结构化数据)</li>
+</ol>
+<h4 id="_6">为什么要进行质量评估</h4>
+<ol>
+<li>数据字段不一定是完整的</li>
+<li>数据字段不一定是可理解的</li>
+<li>数据字段可能存在噪音</li>
+</ol>
+<h3 id="32">3.2 数据缺失值分析</h3>
+<h4 id="_7">缺失的原因</h4>
+<ol>
+<li>数据字段无法获取</li>
+<li>数据字段传输或存储丢失</li>
+<li>数据字段不存在或无意义</li>
+</ol>
+<h4 id="_8">为什么数据缺失也需要进行分析</h4>
+<ol>
+<li>数据缺失本身就是一种信息，有数据的来源分布等信息</li>
+<li>数据缺失比例会影响数据分布和后续的建模操作</li>
+<li>数据缺失可能与噪音有关联</li>
+</ol>
+<h4 id="_9">缺失值如何处理</h4>
+<ol>
+<li>如果字段缺失比例很高(大于99%)，可以考虑丢弃该字段</li>
+<li>如果缺失比例不是很高，则可以考虑填充缺失值<br />
+a. 使用特定值进行填充 <br />
+b. 使用均值进行填充 <br />
+c. 使用众数进行填充  <br />
+d. 使用插值法进行填充 <br />
+e. 使用模型预测值填充   </li>
+<li>如果是类别字段需要填充缺失值，可以将缺失值单独编码为一类</li>
+<li>如果是数值字段需要填充缺失值，可以将缺失值编码为特殊的数值
+附.树模型可以不管，神经网络和线性回归等需要填充</li>
+</ol>
+<h3 id="33">3.3 数据离群点分析</h3>
+<p>数据远离分布的样本点，离群点不一定是噪音，但一定是分布非常极端的样本</p>
+<h4 id="_10">离群点的来源</h4>
+<ol>
+<li>数据采集噪音</li>
+<li>数据来源差异</li>
+</ol>
+<h4 id="_11">离群点检测用途</h4>
+<ol>
+<li>异常流量检测</li>
+<li>异常用户检测</li>
+<li>异常行为检测</li>
+</ol>
+<h4 id="_12">如何处理离群点</h4>
+<ol>
+<li>剔除离群样本</li>
+<li>对离群样本进行截断</li>
+</ol>
+<h4 id="_13">离群点可以从统计分位点和可视化两种方法识别</h4>
+<h3 id="34">3.4 数据关联性分析</h3>
+<h4 id="1_1">1. 通过绘图直观可视化</h4>
+<p>a. 散点图 <br />
+b. 气泡图<br />
+c. 箱线图  </p>
+<h4 id="2_1">2. 通过计算相关性</h4>
+<p>a. pearson系数； From scipy.stats import pearsonr <br />
+b. Spearman系数 <br />
+c. Kendall系数  </p>
+<h4 id="3_1">3. 数据关联分析有什么作用，能得到什么结论</h4>
+<ol>
+<li>字段关联分析能得到字段与字段之间的相关性<br />
+a. 如果字段A与字段B之间的相关性为1，则字段A与字段B重复，可以选择剔除其中一个  <br />
+b. 如果字段A与字段B之间相关性较强，则说明此两个字段分布存在逻辑关系    </li>
+<li>字段关联分析能得到字段与标签的相关性，直接说明字段的重要性       </li>
+<li>字段关联分析能够帮助进行特征筛选和数据清洗  </li>
+</ol>
+<h3 id="35">3.5 案例分析</h3>
+<ol>
+<li>案例：泰坦尼克号数据集清洗</li>
+<li>案例：Two Sigma数据集清洗</li>
+</ol>
+<h2 id="4">4. 数据可视化</h2>
+<h3 id="41">4.1 数据可视化：常见的可视化工具和可视化方法</h3>
+<h4 id="_14">可视化功能实例</h4>
+<h4 id="_15"><a href="https://datavizcatalogue.com/ZH/index.html">图表类型总汇</a></h4>
+<h4 id="_16"><a href="https://zhuanlan.zhihu.com/p/27746129">如何选择正确的图表类型</a></h4>
+<h3 id="42-matplotlibseaborn">4.2 Matplotlib与Seaborn介绍}</h3>
+<h4 id="_17">图表常见组成元素：</h4>
+<h4 id="matplotlib"><a href="https://matplotlib.org/gallery/index.html">Matplotlib图表与例子(需要时直接套用)</a></h4>
+<h4 id="seaborn"><a href="https://seaborn.pydata.org/tutorial.html">Seaborn图表与例子(需要时直接套用)</a></h4>
+<h3 id="43">4.3 地图变量可视化方法</h3>
+<h4 id="folium"><a href="https://python-visualization.github.io/folium/quickstart.html">Folium</a></h4>
+<h4 id="basemap">basemap</h4>
+<h3 id="44">4.4 高维数据可视化方法</h3>
+<p>“现实数据往往都是高纬，稀疏和不规整的，例如文本数据，图像数据，结构化数据等维度可能上万”
+高纬数据的可视化方法：先利用PCA或T-SNE方法降到二维或三维空间再可视化
+<a href="https://zhuanlan.zhihu.com/p/57503336"></a></p>
+<h3 id="45">4.5 绘图库总结</h3>
+<h4 id="_18">一类</h4>
+<p>a. Matplotlib: 2D<br />
+b. Serborn<br />
+c. mpld3： 浏览器交互<br />
+d. Bokeh： 浏览器交互  </p>
+<h4 id="_19">二类</h4>
+<p>a. pyecharts <br />
+b. pygal <br />
+c. plotly   </p>
+<h4 id="_20">三类</h4>
+<p>a. folim<br />
+b. basemap  </p>
+<h2 id="5">5.探索性数据分析</h2>
+<h3 id="51-eda">5.1 探索性数据分析EDA</h3>
+<p>数据分析目的从统计或可视化的方式从数据中得到一些结论，数据分析的问题分为两类：带着目的去进行数据分析和没有目的地去进行数据分析
+1. 有目的：找到数据中占比最多的类别
+-Problem -&gt; Data -&gt; Model -&gt; Analysis -&gt; Conclusions
+2. 无目的：不知道自己会找到什么，即探索性数据分析EDA
+-Problem -&gt; Data -&gt; Analysis -&gt; Model -&gt; Analysis -&gt; Model -&gt; ... -&gt; Conclusions</p>
+<h4 id="eda">EDA分析</h4>
+<p>在数据挖掘任务中给定了数据背景和数据字段说明，如何通过EDA发掘数据规律，数据字段与标签的关系。EDA是数据挖掘必备的步骤，其中数据可视化是有效的工具之一：
+1. 数据离群点分布(散点图，分位图)
+2. 一维数据分析(直方图，统计图)
+3. 二维数据分析(散点图，折线图，箱线图，小提琴图)
+4. 地图数据分析
+5. 关联分布</p>
+<h3 id="52-eda">5.2 EDA案例</h3>
+<ol>
+<li>泰坦尼克号数据集</li>
+<li>租房数据集EDA案例</li>
+<li>医院预约数据案例</li>
+</ol>
+<h3 id="53">5.3 数据分析知识点总结</h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MATLAB/" class="btn btn-neutral float-right" title="MATLAB">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Mkdocs/" class="btn btn-neutral" title="Mkdocs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Mkdocs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../MATLAB/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
